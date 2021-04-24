@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo:4.4.5
+    container_name: mongo-it
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: it
+      MONGO_INITDB_ROOT_PASSWORD: passwd
+      MONGO_INITDB_DATABASE: it-db
+    volumes:
+      - mongo_config:/data/configdb
+      - mongo_data:/data/db
+    ports:
+      - 27020:27017
+    networks:
+      - open-banking
+
+volumes:
+  mongo_config:
+  mongo_data:
+
+networks:
+  open-banking:

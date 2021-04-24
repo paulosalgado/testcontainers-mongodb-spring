@@ -1,0 +1,4 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://it:passwd@localhost:27020/it-db?authSource=admin
